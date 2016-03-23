@@ -13,7 +13,7 @@ TAMIR is a toolbox for transcriping music manuscript from 16th century into mode
 
 -LIBLINEAR(https://www.csie.ntu.edu.tw/~cjlin/liblinear/)
 
--Piotr's Computer Vision Matlab Toolbox
+-Piotr's Computer Vision Matlab Toolbox(http://vision.ucsd.edu/dollar/toolbox/doc/index.html)
 
 -LSD line segment detector(http://www.ipol.im/pub/art/2012/gjmr-lsd/)
 	Note: compile the source code and put the executable(lsd) under ligature folder
