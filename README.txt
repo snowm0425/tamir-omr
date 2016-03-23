@@ -28,7 +28,7 @@ For compiling our source code:
 
 The package tamir/ is organized as follows:
 - README.txt	: this file
-- LICENSE.txt	: GPL v3 license
+- LICENSE 	: GPL v3 license
 - data/ 		: a directory containing pre-trained models
 - img/ 			: a directory containing an example input image (NLsHerAB_72A_003v.jpg)
 - StaffRemoval/ : a directory containing source code of staff lines removal
