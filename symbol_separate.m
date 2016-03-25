@@ -130,9 +130,9 @@ if(strfind(result,'Thickness'))
 	else
 
 	%----- extract symbols ----%
-		fileAno = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg_col.annotation',img_name)),'w');
+		fileAno = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg.annotation',img_name)),'w');
 		fprintf(fileAno,'########## NEW FILE ##########\nfile: %s_crop.jpg\n\n',fullfile(img_annotation,img_name,img_name));
-		fileAnox = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg2_col.annotation',img_name)),'w');
+		fileAnox = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg2.annotation',img_name)),'w');
 		fprintf(fileAnox,'########## NEW FILE ##########\nfile: %s_crop.jpg\n\n',fullfile(img_annotation,img_name,img_name));
 		coord_diffx = out(:,1,:);
 		coord_diffy = out(:,2,:);
@@ -221,6 +221,8 @@ if(strfind(result,'Thickness'))
 						coord_temp(end,:) = [last_x,last_y,coord_xy_imo(i,3)+coord_xy_imo(i,1)-last_x,coord_xy_imo(i,2)+coord_xy_imo(i,4)-last_y];
 					elseif(i==size(coord_xy_imo,1) && coord_xy_imo(i,1)-last_x-last_w>3*lSpace)
 						fprintf('noise on edge!\n');
+                   % elseif(coord_xy_imo(i,1)+coord_xy_imo(i,3)>=size(imn,1))
+                    %    fprintf('bbox touching the edge\n');
 					else
 						coord_temp = [coord_temp;coord_xy_imo(i,:)];
 					end
@@ -251,8 +253,9 @@ if(strfind(result,'Thickness'))
 					coord_temp2(i,2) = coord_temp2(i,2)-lThickness;
 					coord_temp2(i,3) = coord_temp2(i,3)+2*lThickness;
 					coord_temp2(i,4) = coord_temp2(i,4)+2*lThickness;
-					%%%% pitch detection %%%
-					fprintf(fileAno,'object: %d\nbbox: %d,%d,%d,%d\n\n',global_i,coord_temp2(i,:));
+					if coord_temp2(i,1)+coord_temp2(i,3)<size(im_out,1)
+                        fprintf(fileAno,'object: %d\nbbox: %d,%d,%d,%d\n\n',global_i,coord_temp2(i,:));
+                    end
 				end		
 			end
 			
