@@ -3,6 +3,9 @@ This folder contain the following pre-trained model/classifier.
 - SVM_LIBLINEAR_MODEL_150sample_16gmm_FV_33class_noprob_64_128.mat
     This is the pre-trained classifier for symbol classification trained using at most 150 samples with
     fisher vector representation for each class.
+
+- breved5Detector.mat    
+    This is the pre-trained note breve detector
     
 - vl_gmm_model_expnote_pca_comp_16sample_v0_64_clusters_128
     This is the pre-trained model of Gaussian Mixture Model (GMM) for fisher vector representation. 
