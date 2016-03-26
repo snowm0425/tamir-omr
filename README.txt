@@ -64,7 +64,7 @@ Output file('NLsHerAB_72A_003v_seg_col.annotation') can be found in
 
 ------Symbol recognition--------
 For symbol recognition, type
->> parsing_and_recog 'NLsHerAB_72A_003v' '/path/to/tamir/output/' '/path/to/<VLFEATROOT>/' '/path/to/<Piotr>/' '1'
+>> parsing_and_recog 'NLsHerAB_72A_003v' '/path/to/tamir/output/' '/path/to/<VLFEATROOT>/' '/path/to/<Piotr>/toolbox/' '1'
 Output file('NLsHerAB_72A_003v_recog.annotation') can be found in
 '/path/to/tamir/output/NLsHerAB_72A_003v/' directory.
 
