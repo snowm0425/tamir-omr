@@ -6,7 +6,6 @@ function linePosition = bar_Detection(lineOutput, h)
 %% output: linePosition: return vertical line segments in n by 3( x, y1, y2) matrix, 
 %%         where n is the number of vertical lines 
 
-%   lineOutput = '/esat/jabbah/yhuang/Codes/lsd_1.6/test2.result.txt';
     fileID = fopen(lineOutput,'r');
     tline = fgetl(fileID);
     linePosition = [];
