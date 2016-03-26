@@ -3,6 +3,7 @@ function [label,pitch] = ligature_detection(img_name, img_annotation,coord_x, co
 % recognize the ligature from a given cropped symbol
 % xx im: crop of ligature(rgb)
 % coord_x, coord_y, coord_w, coord_h : bbox for the symbol
+% ptoolbox: path to where Piotr's toolbox installed (/path/to/piotr/toolbox/)
 % output label: ex: Ligature_uB_B_B
 %        pitch: ex: 3.5_4.5_3
 
