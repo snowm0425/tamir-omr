@@ -6,10 +6,7 @@ function [label,pitch] = ligature_detection(img_name, img_annotation,coord_x, co
 % output label: ex: Ligature_uB_B_B
 %        pitch: ex: 3.5_4.5_3
 
-% settings:
 
-%img_name = 'GB-Lbl_Royal_8_G_vii_24v';
-%img_annotation = '/esat/jabbah/yhuang/test/GBtest/';
 img = imread(fullfile(img_annotation,img_name,sprintf('%s_crop.jpg',img_name)));
 im = imcrop(img,[coord_x,coord_y,coord_w,coord_h]);
 path_DPfile = fullfile(img_annotation,img_name,'DP_log');
@@ -28,24 +25,6 @@ end
 
 % block detection
 addpath(genpath(ptoolbox))
-%addpath(genpath('/esat/jabbah/yhuang/Codes/piotr/toolbox'));
-%{
-cd(fileparts(which('acfDemoCal.m'))); 
-dataDir='/esat/jabbah/yhuang/Symbols/april_all/26class/training/note_breve/';
-%% set up opts for training detector (see acfTrain)
-opts=acfTrain(); 
-opts.modelDs=[25 25]; opts.modelDsPad=[30 30];
-opts.pPyramid.pChns.pColor.smooth=0; opts.nWeak=[256];
-opts.pBoost.pTree.maxDepth=5; opts.pBoost.discrete=0;
-opts.pBoost.pTree.fracFtrs=1/16; opts.nNeg=900; opts.nAccNeg=900;
-opts.pPyramid.pChns.pGradHist.softBin=1; opts.pJitter=struct('flip',1);
-%opts.posGtDir=[dataDir 'train' int2str2(skip,2) '/annotations'];
-%opts.posImgDir=[dataDir 'train' int2str2(skip,2) '/images'];
-opts.posWinDir=[dataDir 'resized30'];
-opts.negWinDir=[dataDir 'negative-cr30'];
-
-opts.pPyramid.pChns.shrink=2; opts.name='models/breved5';
-%}
 
 % load pre-trained modelfor note breve det
 load('./data/breved5Detector.mat');
@@ -205,7 +184,6 @@ end
 
 
 % vertical line detection
-%cd('/esat/jabbah/yhuang/Codes/lsd_1.6/');
 
 % line detection %
 if isempty(sorted_bbs)
@@ -309,4 +287,4 @@ function en= check_overlap(new_bbs, bbs)
     if(en~=size(new_bbs,1))
         en=0; end
 
-end
+gnd
