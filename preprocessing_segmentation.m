@@ -71,7 +71,7 @@ if(~exist(fullfile(img_annotation,img_name,sprintf('%s_seg.annotation',img_name)
     end
 
 	%-----symbol segmentation-----%
-    symbol_separate(path_DPfile,pbmin,pbmout,img_annotation,img_name);
+    symbol_segmentation(path_DPfile,pbmin,pbmout,img_annotation,img_name);
 	
 		
 end
