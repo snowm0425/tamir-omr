@@ -1,15 +1,14 @@
-function parsing_and_recog(img_name,img_annotation,vlfeat,correct)
+function parsing_and_recog(img_name,img_annotation,vlfeat,piotr,correct)
 %parse the segmentation file in annotation format and recognize the symbols with related information
 
 %input:
 %- img_name: the filename of the image
 %- img_annotation: the output folder 
 %- vlfeat: the path to where VLFEAT installed
+%- piotr: the path to where piotr installed
 %- correct: 0->direct parse the segmentation result 
 %			1->parse the manually corrected version segmentation file
 %img_name = 'NLsHerAB_72A_003v';
-%img_annotation = '/esat/jabbah/yhuang/test/ISMIR/';
-%vlfeat = '/esat/jabbah/yhuang/vlfeat-0.9.19/';
 
 currentFolder = pwd
 % setup vl_feat
@@ -114,7 +113,7 @@ while ischar(tline)
           if(str2num(char(split_v(3)))>2.5*lSpace && str2num(char(split_v(1)))>last_x) %ligature
               disp('ligature');
               [label,pitch] = ligature_detection(img_name, img_annotation,str2num(char(split_v(1))),...
-                  str2num(char(split_v(2))),str2num(char(split_v(3))),str2num(char(split_v(4))));
+                  str2num(char(split_v(2))),str2num(char(split_v(3))),str2num(char(split_v(4))),piotr);
               if ~isempty(label)
                   fprintf('predict: %s\n',label); 
                   text_pos = num2str(pitch(1))
