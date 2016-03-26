@@ -27,7 +27,8 @@ if(strfind(result,'Thickness'))
 end
 
 % block detection
-addpath(genpath('/esat/jabbah/yhuang/Codes/piotr/toolbox'));
+addpath(genpath(ptoolbox))
+%addpath(genpath('/esat/jabbah/yhuang/Codes/piotr/toolbox'));
 %{
 cd(fileparts(which('acfDemoCal.m'))); 
 dataDir='/esat/jabbah/yhuang/Symbols/april_all/26class/training/note_breve/';
@@ -47,7 +48,7 @@ opts.pPyramid.pChns.shrink=2; opts.name='models/breved5';
 %}
 
 % load pre-trained modelfor note breve det
-load('/esat/jabbah/yhuang/Codes/piotr/toolbox/detector/models/breved5Detector.mat');
+load('./data/breved5Detector.mat');
 %detector = acfTrain( opts );
 tic, bbs=acfDetect(im,detector); toc
 new_bbs = [];
