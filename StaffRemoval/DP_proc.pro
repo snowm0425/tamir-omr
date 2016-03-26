@@ -8,7 +8,7 @@ QT       -= core
 
 QT       -= gui
 
-TARGET = DP_proc
+TARGET = DP_StaffRemoval
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -22,6 +22,7 @@ HEADERS += \
     pnmfile.h \
     image.h \
     misc.h
+
 
 
 
