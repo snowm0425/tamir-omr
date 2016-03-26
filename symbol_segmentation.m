@@ -1,4 +1,4 @@
-function symbol_separate(path_DPfile, pbmin, pbmout,img_annotation,img_name)
+function symbol_segmentation(path_DPfile, pbmin, pbmout,img_annotation,img_name)
 %segment the symbols from the image using connected component analysis
 
 [status result] = system(['tail -n 1 ' path_DPfile]); %extract the last line of DP_log
