@@ -9,7 +9,7 @@ currentFolder = pwd
 resize_ratio = 1;  % percentage for resize, 1 means the original size
 %color_en = 0;
 crop = 1;
-#fileLog = fopen('./log','w');
+%fileLog = fopen('./log','w');
 
 %---------------------------------%
 if(~exist(img_annotation,'dir'))
