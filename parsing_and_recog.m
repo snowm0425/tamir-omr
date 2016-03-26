@@ -34,8 +34,9 @@ load(fullfile(img_annotation,img_name,'stave_position.mat'));
 if correct =='1'
     % change the image path in corrected segmentation file
    	system(['./changePath.sh']); 
-	% load correct annotation file
+   % load correct annotation file
 	fileID = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg_correct.annotation',img_name)),'r');
+   % set the output annotation file name	
 	outID = fopen(fullfile(img_annotation,img_name,sprintf('%s_correct_recog.annotation',img_name)),'w');
 else
 	fileID = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg.annotation',img_name)),'r');
