@@ -1,17 +1,17 @@
-function parsing_and_recog(img_name,img_annotation,vlfeat)
+function parsing_and_recog(img_name,img_annotation,vlfeat,correct)
 %parse the segmentation file in annotation format and recognize the symbols with related information
 
 %input:
 %- img_name: the filename of the image
 %- img_annotation: the output folder 
 %- vlfeat: the path to where VLFEAT installed
-
+%- correct: 0->direct parse the segmentation result 
+%			1->parse the manually corrected version segmentation file
 %img_name = 'NLsHerAB_72A_003v';
 %img_annotation = '/esat/jabbah/yhuang/test/ISMIR/';
 %vlfeat = '/esat/jabbah/yhuang/vlfeat-0.9.19/';
 
 currentFolder = pwd
-
 % setup vl_feat
 run(fullfile(vlfeat,'toolbox','vl_setup.m'));
 addpath(genpath('./ligature'));
@@ -31,11 +31,16 @@ load(ModelFile); %model for computing fisher vector representation
 load(SVM_MODEL_FILE); %model for classfying symbols
 % load the y position for each stave
 load(fullfile(img_annotation,img_name,'stave_position.mat'));
-
-% load correct annotation file
-fileID = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg_col_correct.annotation',img_name)),'r');
-
-outID = fopen(fullfile(img_annotation,img_name,sprintf('%s_recog.annotation',img_name)),'w');
+if correct =='1'
+    % change the image path in corrected segmentation file
+   	system(['./changePath.sh']); 
+	% load correct annotation file
+	fileID = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg_correct.annotation',img_name)),'r');
+	outID = fopen(fullfile(img_annotation,img_name,sprintf('%s_correct_recog.annotation',img_name)),'w');
+else
+	fileID = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg.annotation',img_name)),'r');
+	outID = fopen(fullfile(img_annotation,img_name,sprintf('%s_recog.annotation',img_name)),'w');
+end
 im = imread(fullfile(img_annotation,img_name,sprintf('%s_crop.jpg',img_name)));
 if ndims(im) == 3
     gray = rgb2gray(im);
@@ -90,6 +95,7 @@ while ischar(tline)
       end
       
       if(en_proc == 1)
+          %check if the bounding box is inside the legal region
           %determine which line
           if last_x-str2num(char(split_v(1)))>5*lSpace
              
@@ -103,7 +109,7 @@ while ischar(tline)
                 end
           end
           % ligature
-          if(str2num(char(split_v(3)))>2*lSpace && str2num(char(split_v(1)))>last_x) %ligature
+          if(str2num(char(split_v(3)))>2.5*lSpace && str2num(char(split_v(1)))>last_x) %ligature
               disp('ligature');
               [label,pitch] = ligature_detection(img_name, img_annotation,str2num(char(split_v(1))),...
                   str2num(char(split_v(2))),str2num(char(split_v(3))),str2num(char(split_v(4))));
@@ -174,5 +180,7 @@ while ischar(tline)
 end
 fclose(outID);
 fclose(fileID);
+
+
 end
        
