@@ -58,13 +58,13 @@ Install the libraris in 01-Dependencies and follow 03-Installation steps.
 
 ------Manuscript preprocessing + symbol segmentation-------
 To run the example for preprocessing and symbol segmentation, start Matlab and type
->> preprocessing_segmentation 'NLsHerAB_72A_003v' ./img ./output/ 
+>> preprocessing_segmentation 'NLsHerAB_72A_003v' /path/to/tamir/img /path/to/tamir/output
 Output file('NLsHerAB_72A_003v_seg_col.annotation') can be found in 
 '/path/to/tamir/output/NLsHerAB_72A_003v/' directory.
 
 ------Symbol recognition--------
 For symbol recognition, type
->> parsing_and_recog 'NLsHerAB_72A_003v' ./output '/path/to/<VLFEATROOT>/' '/path/to/<Piotr>/toolbox/' '1'
+>> parsing_and_recog 'NLsHerAB_72A_003v' /path/to/tamir/output '/path/to/<VLFEATROOT>/' '/path/to/<Piotr>/toolbox/' '1'
 It will load pre-corrected segmentation file and output the recognition result ('NLsHerAB_72A_003v_correct_recog.annotation') in
 '/path/to/tamir/output/NLsHerAB_72A_003v/' directory.
 
