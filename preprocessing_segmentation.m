@@ -67,7 +67,7 @@ if(~exist(fullfile(img_annotation,img_name,sprintf('%s_seg.annotation',img_name)
 	if(~exist(pbmout,'file'))
 		disp('Staff lines removing ...');
 	
-		system(['./StaffRemoval/DP_proc ' pbmin ' ' pbmout ' >' path_DPfile]);
+		system(['./StaffRemoval/DP_StaffRemoval ' pbmin ' ' pbmout ' >' path_DPfile]);
     end
 
 	%-----symbol segmentation-----%
