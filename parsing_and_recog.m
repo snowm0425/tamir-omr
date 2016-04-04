@@ -38,7 +38,7 @@ if correct =='1'
    % set the output annotation file name	
 	outID = fopen(fullfile(img_annotation,img_name,sprintf('%s_correct_recog.annotation',img_name)),'w');
 else
-	gread the raw segmentation file directly
+	%read the raw segmentation file directly
 	fileID = fopen(fullfile(img_annotation,img_name,sprintf('%s_seg.annotation',img_name)),'r');
 	outID = fopen(fullfile(img_annotation,img_name,sprintf('%s_recog.annotation',img_name)),'w');
 end
