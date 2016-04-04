@@ -30,16 +30,16 @@ For compiling our source code (in /StaffRemoval):
 The package tamir/ is organized as follows:
 - README.txt	: this file
 - LICENSE 	: GPL v3 license
-- data/ 		: a directory containing pre-trained models
-- img/ 			: a directory containing an example input image (NLsHerAB_72A_003v.jpg)
+- data/ 	: a directory containing pre-trained models
+- img/ 		: a directory containing an example input image (NLsHerAB_72A_003v.jpg)
 - StaffRemoval/ : a directory containing source code of staff lines removal
 - training/ 	: a directory containing Matlab scripts for training
-- ligature/		: a directory containing source codes for ligature recognition
-
+- ligature/	: a directory containing source codes for ligature recognition
+- output/	: a directory containing an example corrected segmentation file under /NLsHerAB_72A_003v folder for demo
 
 03-Installation 
-- move the excutable(lsd) form LSD line segment detector under /ligature
-- move compiled mex file for your system architecture (ex:64bit, 'predict.mexa64') under /tamir
+- move the excutable(lsd) form LSD line segment detector under /tamir
+- move the compiled mex file of LIBLINEAR for your system architecture (ex:64bit, 'predict.mexa64') under /tamir
 - go into /StaffRemoval and do the following:
 	$ qmake -o Makefile DP_proc.pro
 	$ make
@@ -58,18 +58,18 @@ Install the libraris in 01-Dependencies and follow 03-Installation steps.
 
 ------Manuscript preprocessing + symbol segmentation-------
 To run the example for preprocessing and symbol segmentation, start Matlab and type
->> preprocessing_segmentation 'NLsHerAB_72A_003v' '/path/to/tamir/img/' '/path/to/tamir/output/' 
+>> preprocessing_segmentation 'NLsHerAB_72A_003v' ./img ./output/ 
 Output file('NLsHerAB_72A_003v_seg_col.annotation') can be found in 
 '/path/to/tamir/output/NLsHerAB_72A_003v/' directory.
 
 ------Symbol recognition--------
 For symbol recognition, type
->> parsing_and_recog 'NLsHerAB_72A_003v' '/path/to/tamir/output/' '/path/to/<VLFEATROOT>/' '/path/to/<Piotr>/toolbox/' '1'
-Output file('NLsHerAB_72A_003v_recog.annotation') can be found in
+>> parsing_and_recog 'NLsHerAB_72A_003v' ./output '/path/to/<VLFEATROOT>/' '/path/to/<Piotr>/toolbox/' '1'
+It will load pre-corrected segmentation file and output the recognition result ('NLsHerAB_72A_003v_correct_recog.annotation') in
 '/path/to/tamir/output/NLsHerAB_72A_003v/' directory.
 
 ------Visualization of the segmentation/recognition result-----------
-Go into the directory where Image Annotation Tool is installed, excute by
+Go into the directory where Image Annotation Tool is installed, start the software by
 $ ./imgAnnotation
 
 Specify the annotation file by "Database" -> "Open Database"
