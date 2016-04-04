@@ -288,4 +288,4 @@ function en= check_overlap(new_bbs, bbs)
     if(en~=size(new_bbs,1))
         en=0; end
 
-gnd
+end
