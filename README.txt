@@ -51,7 +51,7 @@ This toolbox is distributed under the GPL v3 license (see LICENSE.txt). If you u
 this code for research purposes, please cite our paper [1] .
 
 05-Reference
-[1]TAMIR Toolbox: Recognition and Transcription Tools for Handwritten Mensural Manuscripts (under reviewing)
+[1] Yu-Hui Huang, Xuanli Chen, Serafina Beck, David Burn, and Luc Van Gool. Automatic handwritten mensural notation interpreter: From manuscript to MIDI performance. In ISMIR 2015
 
 06-Quick start
 Install the libraris in 01-Dependencies and follow 03-Installation steps.
@@ -78,5 +78,5 @@ and select the annotation file to display.
 Click the + sign in File/Directory column and click the image file, the segmentation/recognition result together with the image source will show up.
 
 07-Contact
-Will be disclosed after paper reviewing.
+Yu-Hui Huang [yu-hui.huang@esat.kuleuven.be]
 
