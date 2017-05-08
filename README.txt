@@ -10,7 +10,7 @@ https://github.com/zb8c5ek/alamire_of_tamir
 
 -Matlab
 
--VLFEAT(http://www.vlfeat.org/install-matlab.html)
+-VLFEAT 0.9.19(http://www.vlfeat.org/install-matlab.html)
 
 -LIBLINEAR(https://www.csie.ntu.edu.tw/~cjlin/liblinear/)
 
