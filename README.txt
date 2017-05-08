@@ -14,7 +14,7 @@ https://github.com/zb8c5ek/alamire_of_tamir
 
 -LIBLINEAR(https://www.csie.ntu.edu.tw/~cjlin/liblinear/)
 
--Piotr's Computer Vision Matlab Toolbox(http://vision.ucsd.edu/dollar/toolbox/doc/index.html)
+-Piotr's Computer Vision Matlab Toolbox(https://github.com/pdollar/toolbox)
 
 -LSD line segment detector(http://www.ipol.im/pub/art/2012/gjmr-lsd/)
 	Note: compile the source code and put the executable(lsd) under ligature folder
