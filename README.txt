@@ -24,7 +24,7 @@ For visualization:
 
 For compiling our source code (in /StaffRemoval):
 -qmake
-
+-make
 02-Package structure
 
 The package tamir/ is organized as follows:
