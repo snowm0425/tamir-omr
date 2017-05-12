@@ -51,7 +51,8 @@ This toolbox is distributed under the GPL v3 license (see LICENSE.txt). If you u
 this code for research purposes, please cite our paper [1] .
 
 05-Reference
-[1] Yu-Hui Huang, Xuanli Chen, Serafina Beck, David Burn, and Luc Van Gool. Automatic handwritten mensural notation interpreter: From manuscript to MIDI performance. In ISMIR 2015
+[1] Yu-Hui Huang, Xuanli Chen, Serafina Beck, David Burn, and Luc Van Gool. Automatic handwritten mensural notation interpreter: From manuscript to MIDI performance. In ISMIR 2015.
+[2] R. Timofte and L. Van Gool. Automatic Stave Discovery for Musical Facsimiles. In Asian Conference on Computer Vision (ACCV 2012).
 
 06-Quick start
 Install the libraris in 01-Dependencies and follow 03-Installation steps.
